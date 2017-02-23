@@ -1,0 +1,59 @@
+1.Cluster:
+	A group of similar items or people postiones or occuring closely together.
+	
+	Hadoop cluster:
+		A Hadoop cluster is a special type of computational cluster designed specifically
+for storing and analyzing huge amounts of unstructured data in a distributed environment.
+		Hadoop clusters are known for boosting the speed of data analysis applications.
+They are highly scalable. If a cluster's processing power is overwhelmed by growing volumes of
+data, additional cluster nodes can be added to increase throughput.Hadoop clusters are highly
+resistant to failure because each piece of data is copied onto other cluster nodes, which ensures
+that the data is not lost if one node fails.
+
+
+2.Components of Hadoop 1.x:
+	*Hadoop System is a Master-Slave architecture.
+	*It has 64MB block size.
+	*The default replication factor in Hadoop is 3.
+	
+	There are total 5 components in Hadoop 1.x architecture
+	*Name Node(NN)
+	*Data Node(DN)
+	*Secondary Name Node(SNN)
+	*Job Tracker(JT)
+	*Task Tracker(TT)
+	
+	*Name node,Data node and Secondary name node are called as storage components in Hadoop.
+	*Job tracker and Task tracker are called as Processing components in Hadoop. 
+*Name Node:
+	1.The job of name node is to decide,how to store the physical location of each and
+every file in blocks in the cluster.
+	2.It manages the metadata of the files stored in Data nodes.
+	3.Name node also decides by combining which all physical locations in the data nodes.
+	4.Name node always stores the metadata in FSImage and EditLogs file at regular intervals.
+
+*Data Node:
+	1.Data node will store the file data in blocks.
+	2.It will send the RPC signal at regular interval to notify the name node that it is alive
+and working.
+
+*Secondary Name Node:
+	1.It acts as a backup for Name node.
+	2.It stores the meta data information from name node at regular interval as per checkpoint 
+mechanism.
+	3.When name node goes down in that case SNN comes into picture and acts as a
+temporary name node till name node becomes active again.
+	
+
+*Job Tracker:
+	It is also called as Single Point of Failure(SPOF).
+	1.Most of times resides in the same node as of name node.
+	2.It's job is to assign the task to the Data nodes.
+	3.it also decides the job scheduling for the data nodes.
+	4.In case of job failure,it decides about the rescheduling of the task on some other
+nodes.
+
+*Task Tracker:
+	Task tracker job is to execute the task assigned by job tracker.
+
+
